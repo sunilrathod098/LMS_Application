@@ -23,6 +23,22 @@ app.use(express.urlencoded({ extended: true, limit: "20kb" }))
 app.use(express.static(path.join(__dirname, "../public")))
 app.use(cookieParser())
 
+
+
+// Importing routes
+import authRoutes from "./routes/authRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
+import courseRoutes from "./routes/courseRoutes.js";
+import resourceRoutes from "./routes/resourceRoutes.js";
+import enrollmentRoutes from '/routes'
+
+
+
+
+
+
+
+
 const PORT = process.env.PORT || 5000;
 connectDB().then(() => {
     app.listen(PORT, () => {
