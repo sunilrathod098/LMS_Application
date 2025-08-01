@@ -7,6 +7,7 @@ import {
     updateQuiz
 } from '../controllers/quizController.js';
 import { verifyJWT } from '../middleware/authMiddleware.js';
+import { restrictTo } from '../middleware/roleMiddleware.js';
 
 const router = Router();
 

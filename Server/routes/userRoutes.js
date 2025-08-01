@@ -5,7 +5,7 @@ import {
     getUserById,
     updateUser
 } from '../controllers/userController.js';
-import { admin } from '../middleware/adminMiddleware.js';
+import { admin } from '../middleware/roleMiddleware.js';
 import { verifyJWT } from '../middleware/authMiddleware.js';
 
 const router = Router();

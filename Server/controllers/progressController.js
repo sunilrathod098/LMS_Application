@@ -52,3 +52,22 @@ export const getUserProgress = asyncHandler(async (req, res) => {
         throw new ApiError(500, `Something went wrong while fetching progress: ${error.message}`);
     }
 });
+
+export const getCourseProgress = asyncHandler(async (req, res) => {
+    try {
+        const { courseId } = req.params;
+
+        const progress = await Progress.find({ courseId })
+            .populate('userId', 'name email') // Add more fields to populate as needed
+            .select('userId completedLessons'); // You can adjust this based on what you need
+
+        return res.status(200).json(
+            new ApiResponse(
+                200,
+                "Course progress fetched successfully",
+                progress
+            ));
+    } catch (error) {
+        throw new ApiError(500, `Something went wrong while fetching course progress: ${error.message}`);
+    }
+});

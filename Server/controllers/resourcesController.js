@@ -1,5 +1,5 @@
 import { v2 as cloudinary } from "cloudinary";
-import Resource from "../models/resourceModel.js";
+import {Resource} from "../models/resourceModel.js";
 import { ApiResponse } from "../utils/apiResponse.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 

@@ -3,7 +3,8 @@ import {
     createLesson,
     deleteLesson,
     getCourseLessons,
-    updateLesson
+    updateLesson,
+    uploadLessonVideo
 } from '../controllers/lessonController.js';
 import { verifyJWT } from '../middleware/authMiddleware.js';
 import { restrictTo } from '../middleware/roleMiddleware.js';
@@ -18,7 +19,7 @@ router.use(verifyJWT);
 router.use(restrictTo('instructor', 'admin'));
 router.route('/courses/:courseId/lessons')
     .post(
-        uploadVideo.single('video'),
+        uploadVideo,
         handleUpload(uploadVideo),
         createLesson
     );
@@ -29,7 +30,7 @@ router.route('/lessons/:lessonId')
 
 router.route('/lessons/:lessonId/video')
     .patch(
-        uploadVideo.single('video'),
+        uploadVideo,
         handleUpload(uploadVideo),
         uploadLessonVideo
     );

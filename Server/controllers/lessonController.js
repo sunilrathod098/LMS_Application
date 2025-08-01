@@ -115,3 +115,36 @@ export const getCourseLessons = asyncHandler(async (req, res) => {
         throw new ApiError(500, `Something went wrong while fetching lessons: ${error.message}`);
     }
 });
+
+// Assuming you want to upload a video for a lesson
+export const uploadLessonVideo = asyncHandler(async (req, res) => {
+    const { lessonId } = req.params;
+    const videoLocalPath = req.file?.path.replace(/\\/g, "/");
+
+    if (!videoLocalPath) {
+        throw new ApiError(400, "Video file is required");
+    }
+
+    const video = await uploadOnCloud(videoLocalPath, "video");
+    if (!video.url) {
+        throw new ApiError(500, "Failed to upload video");
+    }
+
+    const updatedLesson = await Lesson.findByIdAndUpdate(
+        lessonId,
+        { videoUrl: video.url, duration: video.duration || 0 },
+        { new: true }
+    );
+
+    if (!updatedLesson) {
+        throw new ApiError(404, "Lesson not found");
+    }
+
+    return res.status(200).json(
+        new ApiResponse(
+            200,
+            "Lesson video updated successfully",
+            updatedLesson
+        )
+    );
+});

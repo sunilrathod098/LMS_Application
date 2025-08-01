@@ -1,5 +1,5 @@
-import Enrollment from '../models/enrollmentModel.js';
-import Progress from '../models/progressModel.js';
+import {Enrollment} from '../models/enrollmentModel.js';
+import {Progress} from '../models/progressModel.js';
 import { User } from "../models/userModel.js";
 import { ApiError } from "../utils/apiError.js";
 import { ApiResponse } from "../utils/apiResponse.js";

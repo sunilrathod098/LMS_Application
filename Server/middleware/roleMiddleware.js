@@ -17,7 +17,7 @@ export const restrictTo = (...roles) => {
     });
 };
 
-export const isInstructor = asyncHandler(async (req, res, next) => {
+export const instructor = asyncHandler(async (req, res, next) => {
     try {
         if (req.user.role !== 'instructor' && req.user.role !== 'admin') {
             throw new ApiError(
@@ -31,7 +31,7 @@ export const isInstructor = asyncHandler(async (req, res, next) => {
     }
 });
 
-export const isAdmin = asyncHandler(async (req, res, next) => {
+export const admin = asyncHandler(async (req, res, next) => {
     try {
         if (req.user.role !== 'admin') {
             throw new ApiError(403, 'This action requires admin privileges');

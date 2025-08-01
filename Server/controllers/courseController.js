@@ -1,6 +1,6 @@
-import Course from '../models/courseModel.js';
-import Lesson from '../models/lessonModel.js';
-import Resource from '../models/resourceModel.js';
+import {Course} from '../models/courseModel.js';
+import {Lesson} from '../models/lessonModel.js';
+import {Resource} from '../models/resourceModel.js';
 import { ApiError } from '../utils/apiError.js';
 import { ApiResponse } from '../utils/apiResponse.js';
 import { asyncHandler } from '../utils/asyncHandler.js';

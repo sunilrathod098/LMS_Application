@@ -4,7 +4,8 @@ import {
     getUserProgress,
     updateProgress
 } from '../controllers/progressController.js';
-import { verifyJWT } from '../middlewares/authMiddleware.js';
+import { verifyJWT } from "../middleware/authMiddleware.js";
+import { restrictTo } from '../middleware/roleMiddleware.js';
 
 const router = Router();
 

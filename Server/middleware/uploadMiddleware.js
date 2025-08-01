@@ -27,9 +27,18 @@ const resourceStorage = new CloudinaryStorage({
     },
 });
 
+const videoStorage = new CloudinaryStorage({
+    cloudinary,
+    params: {
+        folder: 'LMS_Application/videos',
+        allowed_formats: ['mp4', 'avi', 'mov'],
+    },
+});
+
 //Here Multer upload instances
 export const uploadAvatar = multer({ storage: avatarStorage }).single("avatar");
 export const uploadResource = multer({ storage: resourceStorage }).single("file");
+export const uploadVideo = multer({ storage: videoStorage }).single("video");
 
 //Here Error handling wrapper
 export const handleUpload = (uploadFunction) => (req, res, next) => {
@@ -43,3 +52,4 @@ export const handleUpload = (uploadFunction) => (req, res, next) => {
         next();
     });
 };
+

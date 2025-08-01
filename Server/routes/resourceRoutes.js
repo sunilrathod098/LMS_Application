@@ -4,8 +4,10 @@ import {
     deleteResource,
     getCourseResources
 } from '../controllers/resourcesController.js';
-import { instructor, verifyJWT } from '../middleware/authMiddleware.js';
+import {  verifyJWT } from '../middleware/authMiddleware.js';
 import { handleUpload, uploadResource } from '../middleware/uploadMiddleware.js';
+import { restrictTo } from '../middleware/roleMiddleware.js';
+import { instructor, admin } from '../middleware/roleMiddleware.js';
 
 const router = Router();
 

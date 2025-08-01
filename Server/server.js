@@ -31,7 +31,7 @@ import courseRoutes from "./routes/courseRoutes.js";
 import enrollmentRoutes from "./routes/enrollmentRoutes.js";
 import lessonRoutes from "./routes/lessonRoutes.js";
 import progress from "./routes/progressRoutes.js";
-import quizRoutes from "./routes/quizRoutes.js";
+import quizRoutes from "./routes/quizRouters.js";
 import resourceRoutes from "./routes/resourceRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 
