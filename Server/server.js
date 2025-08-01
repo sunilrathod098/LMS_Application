@@ -27,16 +27,22 @@ app.use(cookieParser())
 
 // Importing routes
 import authRoutes from "./routes/authRoutes.js";
-import userRoutes from "./routes/userRoutes.js";
 import courseRoutes from "./routes/courseRoutes.js";
+import enrollmentRoutes from "./routes/enrollmentRoutes.js";
+import lessonRoutes from "./routes/lessonRoutes.js";
+import progress from "./routes/progressRoutes.js";
+import quizRoutes from "./routes/quizRoutes.js";
 import resourceRoutes from "./routes/resourceRoutes.js";
-import enrollmentRoutes from '/routes'
+import userRoutes from "./routes/userRoutes.js";
 
-
-
-
-
-
+app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/courses", courseRoutes);
+app.use("/api/v1/resources", resourceRoutes);
+app.use("/api/v1/enrollments", enrollmentRoutes);
+app.use("/api/v1/lessons", lessonRoutes);
+app.use("/api/v1/quizzes", quizRoutes);
+app.use("/api/v1/progress", progress);
 
 
 const PORT = process.env.PORT || 5000;
